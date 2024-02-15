@@ -6,6 +6,7 @@ public class VendingMachine {
         //Variable declaration
         String cmd;                 //User input snack selection
         double price = 0;           //price
+        int bills = 0;              //bills inserted  
 
         Scanner scan = new Scanner( System.in );
 
@@ -19,27 +20,21 @@ public class VendingMachine {
 
          switch (cmd.toLowerCase()) {
             case "twix":
-                System.out.println("");
                 price = 1.50;
                     break;
             case "snickers":
-                System.out.println("");
                 price = 1.75;
                     break;
             case "lays":
-                System.out.println("");
                 price = 2.25;
                     break;
             case "cheez-it":
-                System.out.println("");
                 price = 2.25;
                     break;
             case "cheeto":
-                System.out.println("");
                 price = 2;
                     break;
             case "m&ms":
-                System.out.println("");
                 price = 1.25;
                     break;
             default:
@@ -53,6 +48,17 @@ public class VendingMachine {
         System.out.println("You have selected " + cmd);
         System.out.printf("Your total is $%.2f. Please insert $1 bills: \n\n", price);
 
-    }
-}
+        while(price > bills){
+            int insertedBill = scan.nextInt();
 
+            if(insertedBill != 1)
+                System.out.println("please input only $1 bills");
+            else {
+                bills += insertedBill;
+                System.out.printf("Total inserted: $%d. Remaining: $%.2f\n", bills, price - bills);
+            }
+        }
+
+    }
+
+}
