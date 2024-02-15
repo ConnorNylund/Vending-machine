@@ -7,6 +7,7 @@ public class VendingMachine {
         String cmd;                 //User input snack selection
         double price = 0;           //price
         int bills = 0;              //bills inserted  
+        char confirm;               //User confirmation of transaction
 
         Scanner scan = new Scanner( System.in );
 
@@ -31,7 +32,7 @@ public class VendingMachine {
             case "cheez-it":
                 price = 2.25;
                     break;
-            case "cheeto":
+            case "cheetos":
                 price = 2;
                     break;
             case "m&ms":
@@ -43,7 +44,7 @@ public class VendingMachine {
         }
 
         //Reformat cmd(snack selection) String for output
-        cmd = cmd.substring(0, 1).toUpperCase() + cmd.substring(1, cmd.length());
+        cmd = cmd.substring(0, 1).toUpperCase() + cmd.substring(1, cmd.length()).toLowerCase();
 
         System.out.println("You have selected " + cmd);
         System.out.printf("Your total is $%.2f. Please insert $1 bills: \n\n", price);
@@ -59,6 +60,27 @@ public class VendingMachine {
             }
         }
 
+        scan.nextLine();
+
+        //Obtain user confirmation for transaction
+        System.out.println("Confirm transaction?(y/n)");
+        confirm = scan.nextLine().toLowerCase().charAt(0);
+
+        if(confirm == 'y') {
+            System.out.println("Dispensing " + cmd + "...");
+        }
+        else if(confirm == 'n') {
+            System.out.println("Transaction declined. Refunding bills...");
+
+            //Refund bills
+            for(int i = 0; i < bills; i++) {
+                System.out.println("1");
+            }
+        }
+        else {
+            //User didn't enter 'y' or 'n'
+            System.out.println("Unexpected entry. Please call for service.");
+        }
     }
 
 }
