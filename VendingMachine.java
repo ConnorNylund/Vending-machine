@@ -68,8 +68,14 @@ public class VendingMachine {
 
         if(confirm == 'y') {
             System.out.println("Dispensing " + cmd + "...");
-        }
-        else if(confirm == 'n') {
+        
+            // Give change if necessary
+            double change = bills - price;
+            if (change > 0) {
+                System.out.printf("Please take your change: $%.2f\n", change);
+            }
+            
+        } else if(confirm == 'n') {
             System.out.println("Transaction declined. Refunding bills...");
 
             //Refund bills
@@ -81,6 +87,7 @@ public class VendingMachine {
             //User didn't enter 'y' or 'n'
             System.out.println("Unexpected entry. Please call for service.");
         }
+
     }
 
 }
