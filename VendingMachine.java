@@ -1,3 +1,10 @@
+/*
+ * Connor Nylund & Jean LaFrance
+ * Assigment 4 - CSC109
+ * @date - 02/15/2024
+ * Program to emulate vending machine
+ */
+
 import java.util.Scanner;
 
 public class VendingMachine {
@@ -74,6 +81,8 @@ public class VendingMachine {
             if (change > 0) {
                 System.out.printf("Please take your change: $%.2f\n", change);
             }
+
+            System.out.println("Enjoy your very nutritional " + cmd + "!");
             
         } else if(confirm == 'n') {
             System.out.println("Transaction declined. Refunding bills...");
@@ -82,6 +91,9 @@ public class VendingMachine {
             for(int i = 0; i < bills; i++) {
                 System.out.println("1");
             }
+
+            //Departure message
+            System.out.println("Enjoy your $1 bills!");
         }
         else {
             //User didn't enter 'y' or 'n'
