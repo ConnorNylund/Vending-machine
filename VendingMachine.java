@@ -93,7 +93,7 @@ public class VendingMachine {
             }
 
             //Departure message
-            System.out.println("Enjoy your $1 bills!");
+            System.out.println("Enjoy your $1 bills! ");
         }
         else {
             //User didn't enter 'y' or 'n'
